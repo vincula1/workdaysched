@@ -3,6 +3,11 @@
 // in the html.
 $(function () {
 
+  let currentDate = dayjs()
+  let formattedDate = currentDate.format('dddd, MMMM Do');
+
+  $("#headerdate").text(formattedDate);
+
   $(".saveBtn").click(function() {
 
       var blockId = $(this).closest('.time-block').attr('id');
@@ -15,12 +20,13 @@ $(function () {
   $(".time-block").each(function() {
       var blockId = $(this).attr('id');
       var savedValue = localStorage.getItem(blockId);
-      
+
       if (savedValue) {
           $(this).find(".description").val(savedValue);
       }
   });
 });
+
 
   
   // TODO: Add a listener for click events on the save button. This code should
