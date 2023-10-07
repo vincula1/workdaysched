@@ -2,6 +2,27 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  $(".saveBtn").click(function() {
+
+      var blockId = $(this).closest('.time-block').attr('id');
+
+      var descriptionValue = $(this).siblings('.description').val();
+
+      localStorage.setItem(blockId, descriptionValue);
+  });
+
+  $(".time-block").each(function() {
+      var blockId = $(this).attr('id');
+      var savedValue = localStorage.getItem(blockId);
+      
+      if (savedValue) {
+          $(this).find(".description").val(savedValue);
+      }
+  });
+});
+
+  
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -20,4 +41,3 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
