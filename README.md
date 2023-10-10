@@ -6,6 +6,6 @@ This scheduler presents users with time blocks based on real-time availability, 
 
 # Screenshot
 
-![Front of page](./assets/worksched.png)
+![Front of page](./Assets/worksched.png/)
 
 [Link to website](https://vincula1.github.io/workdaysched/)
